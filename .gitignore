@@ -1,0 +1,45 @@
+# --- Виртуальные окружения / uv ---
+.venv/
+.uv/
+uv.lock
+
+# --- Python cache ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# --- Логи ---
+*.log
+
+# --- Тестовые кэши ---
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- IDE ---
+.vscode/
+.idea/
+*.iml
+
+# --- Git ---
+.git/
+
+# --- Секреты и локальные настройки ---
+.env
+.env.*
+*.db
+*.sqlite3
+*.sqlite
+
+# --- Временные файлы ---
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# --- OS мусор ---
+.DS_Store
+Thumbs.db
