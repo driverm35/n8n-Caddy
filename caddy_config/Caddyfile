@@ -1,4 +1,4 @@
-n8n.risencloud.ru {
+n8n.massforma.ru {
     reverse_proxy n8n:5678 {
       flush_interval -1
     }
