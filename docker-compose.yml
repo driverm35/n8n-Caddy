@@ -7,7 +7,7 @@ services:
       - "443:443"
     volumes:
       - caddy_data:/data
-      - ${DATA_FOLDER}/caddy_config:/config
+      - ./Caddyfile:/etc/caddy/Caddyfile   # ← ИСПОЛЬЗУЕМ Caddyfile из текущей директории, где compose!
 
   n8n:
     image: docker.n8n.io/n8nio/n8n
@@ -21,9 +21,7 @@ services:
       - NODE_ENV=production
       - WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/
       - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
-      # Исправление ошибки trust proxy
       - N8N_PROXY_HOPS=1
-      # Рекомендуемые настройки для устранения предупреждений
       - DB_SQLITE_POOL_SIZE=3
       - N8N_RUNNERS_ENABLED=true
       - N8N_BLOCK_ENV_ACCESS_IN_NODE=false
@@ -31,7 +29,6 @@ services:
     volumes:
       - n8n_data:/home/node/.n8n
       - ${DATA_FOLDER}/local_files:/files
-    # Ограничение логов, чтобы не забивать диск
     logging:
       driver: "json-file"
       options:
